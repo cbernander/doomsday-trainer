@@ -1,7 +1,7 @@
 # doomsday-trainer
 
 A simple program for exercising the ability to calculate the day of week for
-a given date.
+a given date (Gregorian calendar).
 
 The name is taken from the
 [Doomsday rule](https://en.wikipedia.org/wiki/Doomsday_rule) - an algorithm
@@ -27,8 +27,14 @@ poetry build
 pip install dist/doomsday_trainer-*.whl
 ```
 
-## Running the program
+## Usage
 
 ```
-doomsday-trainer
+usage: doomsday-trainer [-h] [--start-year START_YEAR] [--end-year END_YEAR]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --start-year START_YEAR
+                        Start year
+  --end-year END_YEAR   End year
 ```
