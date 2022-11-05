@@ -1,28 +1,47 @@
 """Doomsday Trainer."""
 
+import argparse
+import sys
 from .dates import DAYS, DoomsDate
 from .gui import SimpleGui
 
-DATE_START = DoomsDate(1800, 1, 1)
-DATE_END = DoomsDate(2099, 12, 31)
 
+class DoomsdayTrainer:
+    """Doomsday trainer class."""
 
-def weekday_match(event: str, date: DoomsDate) -> bool:
-    """Return true if event matches date weekday."""
-    return event == DAYS[date.weekday()]
+    def __init__(self, start_year: int, end_year: int) -> None:
+        """Init method."""
+        self.start_date = DoomsDate(start_year, 1, 1)
+        self.end_date = DoomsDate(end_year, 12, 31)
+        self.new_date()
 
+    def new_date(self):
+        """Set a new random DoomsDate within date interval."""
+        self.date = DoomsDate.random(self.start_date, self.end_date)
 
-def new_date() -> DoomsDate:
-    """Return a new random DoomsDate."""
-    return DoomsDate.random(DATE_START, DATE_END)
+    def is_match(self, event):
+        """Return true if event matches date weekday."""
+        return event == DAYS[self.date.weekday()]
 
 
 def main() -> None:
     """Run main code."""
-    date: DoomsDate = new_date()
-    header = f"Generating dates between {DATE_START} and {DATE_END}"
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--start-year", type=int, default=1800, help="Start year")
+    parser.add_argument("--end-year", type=int, default=2099, help="End year")
+    args = parser.parse_args()
 
-    gui = SimpleGui(date=date, header=header)
+    if args.start_year > args.end_year:
+        print(
+            "Error: Start year must be less than or equal to end year.", file=sys.stderr
+        )
+        return
+
+    trainer = DoomsdayTrainer(args.start_year, args.end_year)
+    gui = SimpleGui(
+        date=trainer.date,
+        header=f"Generating dates between {trainer.start_date} and {trainer.end_date}",
+    )
 
     # Event loop
     while True:
@@ -32,12 +51,12 @@ def main() -> None:
             break
 
         if event in DAYS:
-            if weekday_match(event, date):
-                gui.update_result(f"{date} is a {event}")
-                date = new_date()
-                gui.update_date(str(date))
+            if trainer.is_match(event):
+                gui.update_result(f"{trainer.date} is a {event}")
+                trainer.new_date()
+                gui.update_date(str(trainer.date))
             else:
-                gui.update_date(str(date), error=True)
-                gui.update_result(f"{date} isn't a {event}")
+                gui.update_date(str(trainer.date), error=True)
+                gui.update_result(f"{trainer.date} isn't a {event}")
 
     gui.window.close()
