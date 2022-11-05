@@ -4,6 +4,7 @@ version = "0.2.0"
 description = "Training tool for the Doomsday method."
 authors = ["Christofer Bernander <christofer.bernander@magine.com>"]
 readme = "README.md"
+repository = "https://github.com/cbernander/doomsday-trainer"
 packages = [{include = "doomsday_trainer"}]
 
 [tool.poetry.dependencies]
