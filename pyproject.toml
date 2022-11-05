@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "doomsday-trainer"
-version = "0.2.0"
+version = "0.2.1"
 description = "Training tool for the Doomsday method."
 authors = ["Christofer Bernander <christofer.bernander@magine.com>"]
 license = "GPL-3.0-or-later"
