@@ -8,8 +8,8 @@ python-versions = "*"
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.8"
-content-hash = "74e6d0b35690be4f8013856047db02ff5af96d4c7003da2f06740a85ae9ff630"
+python-versions = "^3.7"
+content-hash = "1fe4306d88a5aa4ec073e89ed320ac524cbd244d8f24d1d744ebf0aa9c2a0738"
 
 [metadata.files]
 pysimplegui = [
