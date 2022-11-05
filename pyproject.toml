@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "doomsday-trainer"
+version = "0.1.0"
+description = "Training tool for the Doomsday method."
+authors = ["Christofer Bernander <christofer.bernander@magine.com>"]
+readme = "README.md"
+packages = [{include = "doomsday_trainer"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pysimplegui = "^4.60.4"
+
+
+[tool.poetry.scripts]
+doomsday = "doomsday_trainer.trainer:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
