@@ -18,6 +18,10 @@ devised by [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway) in
 
 ## Installation
 
+```
+pip install doomsday-trainer
+```
+
 ### From source (using Poetry)
 
 ```
