@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "doomsday-trainer"
-version = "0.2.2"
+version = "0.2.3"
 description = "Training tool for the Doomsday method."
 authors = ["Christofer Bernander"]
 license = "GPL-3.0-or-later"
@@ -9,7 +9,7 @@ repository = "https://github.com/cbernander/doomsday-trainer"
 packages = [{include = "doomsday_trainer"}]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.7"
 pysimplegui = "^4.60.4"
 
 
