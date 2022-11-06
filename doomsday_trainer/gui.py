@@ -1,6 +1,6 @@
 """GUI code."""
 import PySimpleGUI as sg  # type: ignore
-from .dates import DAYS
+from .dates import DoomsWeekday
 
 THEME = "Gray Gray Gray"
 WINDOW_TITLE = "Doomsday Trainer"
@@ -52,7 +52,7 @@ class SimpleGui:
 
         row_layout_buttons = []
 
-        for day in DAYS:
+        for day in DoomsWeekday.names_iso_order():
             row_layout_buttons.append(sg.Button(day, font=FONT_BUTTON_WEEKDAY))
 
         row_last_result = [
