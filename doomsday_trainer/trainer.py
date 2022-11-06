@@ -13,6 +13,7 @@ class DoomsdayTrainer:
         """Init method."""
         self.start_date = DoomsDate(start_year, 1, 1)
         self.end_date = DoomsDate(end_year, 12, 31)
+        self.date = None
         self.new_date()
 
     def new_date(self):
