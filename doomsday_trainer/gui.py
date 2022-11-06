@@ -8,15 +8,16 @@ WINDOW_TITLE = "Doomsday Trainer"
 FONT_TEXT_DATE = ("Helvetica", 70, "bold")
 FONT_TEXT_INFO = ("Helvetica", 14, "italic")
 FONT_BUTTON_WEEKDAY = ("Helvetica", 12, "bold")
-FONT_BUTTON_EXIT = ("Helvetica", 12)
-
-KEY_EXIT = "-EXIT-"
-KEY_DATE = "-DATE-"
-KEY_RESULT = "-RESULT-"
+FONT_BUTTON_ACTION = ("Helvetica", 12)
 
 
 class SimpleGui:
     """GUI class."""
+
+    KEY_EXIT = "-EXIT-"
+    KEY_DOOMSDAY = "-DOOMSDAY-"
+    KEY_DATE = "-DATE-"
+    KEY_RESULT = "-RESULT-"
 
     EXIT_EVENTS = (sg.WIN_CLOSED, KEY_EXIT)
 
@@ -43,7 +44,7 @@ class SimpleGui:
             sg.Push(),
             sg.Text(
                 self.date,
-                key=KEY_DATE,
+                key=self.KEY_DATE,
                 font=FONT_TEXT_DATE,
                 pad=(5, 15),
             ),
@@ -57,13 +58,14 @@ class SimpleGui:
 
         row_last_result = [
             sg.Push(),
-            sg.Text(font=FONT_TEXT_INFO, key=KEY_RESULT, pad=(5, 5)),
+            sg.Text(font=FONT_TEXT_INFO, key=self.KEY_RESULT, pad=(5, 5)),
             sg.Push(),
         ]
 
         row_exit_button = [
             sg.Push(),
-            sg.Button("Exit", key=KEY_EXIT, font=FONT_BUTTON_EXIT),
+            sg.Button("Doomsday", key=self.KEY_DOOMSDAY, font=FONT_BUTTON_ACTION),
+            sg.Button("Exit", key=self.KEY_EXIT, font=FONT_BUTTON_ACTION),
             sg.Push(),
         ]
 
@@ -82,8 +84,8 @@ class SimpleGui:
         if error:
             text_color = "Red"
 
-        self.window[KEY_DATE].update(value, text_color=text_color)
+        self.window[self.KEY_DATE].update(value, text_color=text_color)
 
     def update_result(self, value: str):
         """Update result text."""
-        self.window[KEY_RESULT].update(value)
+        self.window[self.KEY_RESULT].update(value)

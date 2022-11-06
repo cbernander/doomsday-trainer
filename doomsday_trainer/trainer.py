@@ -2,7 +2,7 @@
 
 import argparse
 import sys
-from .dates import DoomsDate, DoomsWeekday
+from .dates import DoomsdayRule, DoomsDate, DoomsWeekday
 from .gui import SimpleGui
 
 DEFAULT_START_YEAR = 1800
@@ -54,6 +54,11 @@ def main() -> None:
 
         if event in gui.EXIT_EVENTS:
             break
+
+        if event == gui.KEY_DOOMSDAY:
+            rule = DoomsdayRule(trainer.date)
+            gui.update_result(rule.year_doomsday_string())
+            continue
 
         # Try to create a DoomsWeekday from the event
         answer_doomsweekday = DoomsWeekday.create_from_name(event)
