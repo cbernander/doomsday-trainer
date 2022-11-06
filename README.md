@@ -8,6 +8,12 @@ The name is taken from the
 devised by [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway) in
 1973 for this specific purpose.
 
+## Installation
+
+```
+pip install doomsday-trainer
+```
+
 ## Usage
 
 ```
@@ -18,12 +24,6 @@ optional arguments:
   --start-year START_YEAR
                         Start year [1800]
   --end-year END_YEAR   End year [2099]
-```
-
-## Installation
-
-```
-pip install doomsday-trainer
 ```
 
 ## Installation from source (using Poetry)
