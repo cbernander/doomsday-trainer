@@ -1,4 +1,4 @@
-"""Testing module."""
+"""Tests for dates module."""
 
 from doomsday_trainer import dates
 
