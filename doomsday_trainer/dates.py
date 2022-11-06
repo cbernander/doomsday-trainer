@@ -3,6 +3,58 @@ import random
 from datetime import datetime
 
 
+class DoomsdayRule:
+    """An representation of the application of the Doomsday rule to a specific date."""
+
+    def __init__(self, doomsdate):
+        """Initialize object."""
+        self.doomsdate = doomsdate
+
+    def short_year(self):
+        """Return last two digits of year."""
+        return self.doomsdate.year % 100
+
+    def first_quotient_floor(self):
+        """Return quotient floor for (year / 12) (first term for doomsday summing)."""
+        return self.short_year() // 12
+
+    def first_quotient_remainder(self):
+        """Return first quotient remainder (second term for doomsday summing)."""
+        return self.short_year() - (self.first_quotient_floor() * 12)
+
+    def second_quotient_floor(self):
+        """Return quotient floor for (remainder / 4) (third term for doomsday summing)."""
+        return self.first_quotient_remainder() // 4
+
+    def century_anchor(self):
+        """Return the century anchor (fourth term for doomsday summing)."""
+        year = self.doomsdate.year
+        return DoomsWeekday((year // 100 % 4) * 5 % 7 + 2)
+
+    def year_doomsday(self):
+        """Return doomsday (as a DoomsWeekday) for this year."""
+        doomsday = (
+            self.first_quotient_floor()
+            + self.first_quotient_remainder()
+            + self.second_quotient_floor()
+            + self.century_anchor().number
+        ) % 7
+        return DoomsWeekday(doomsday)
+
+    def year_doomsday_string(self):
+        """Return a string representation of (the solution for) this year's doomsday."""
+        year = self.doomsdate.year
+        fqf = self.first_quotient_floor()
+        fqr = self.first_quotient_remainder()
+        sqf = self.second_quotient_floor()
+        ca = self.century_anchor().number
+        dd = self.year_doomsday()
+        return (
+            f"Doomsday for {year} is ({fqf} + {fqr} + {sqf} + {ca}) % 7 = "
+            f"{dd.number} ({dd.name()})"
+        )
+
+
 class DoomsDate:
     """A custom date implementation."""
 
@@ -21,7 +73,7 @@ class DoomsDate:
         return DoomsDate(dt_random.year, dt_random.month, dt_random.day)
 
     def doomsweekday(self):
-        """Return a DoomsWeekday object for date."""
+        """Return a DoomsWeekday object for this DoomsDate."""
         return DoomsWeekday(datetime(self.year, self.month, self.day).isoweekday())
 
     def __str__(self) -> str:
@@ -53,9 +105,9 @@ class DoomsWeekday:
 
         return False
 
-    def number(self):
-        """Get Doomsday number."""
-        return self.number
+    def name(self):
+        """Get weekday name for this DoomsWeekday."""
+        return self.DAYS[self.number]
 
     @classmethod
     def create_from_name(cls, name):
