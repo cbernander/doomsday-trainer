@@ -1,6 +1,6 @@
 # doomsday-trainer
 
-A simple program for exercising the ability to calculate the day of week for
+A simple GUI program for exercising the ability to calculate the day of week for
 a given date (Gregorian calendar).
 
 The name is taken from the
@@ -8,30 +8,10 @@ The name is taken from the
 devised by [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway) in
 1973 for this specific purpose.
 
-## Dependencies and external tools
-
-- Python 3.7+
-
-- [Poetry](https://python-poetry.org/) for dependency management and packaging.
-
-- [tox](https://pypi.org/project/tox/) for testing.
-
-- [Black](https://black.readthedocs.io/en/stable/index.html) for code
-  formatting.
-
 ## Installation
 
 ```
 pip install doomsday-trainer
-```
-
-### From source (using Poetry)
-
-```
-git clone https://github.com/cbernander/doomsday-trainer.git
-cd doomsday-trainer
-poetry build
-pip install dist/doomsday_trainer-*.whl
 ```
 
 ## Usage
@@ -45,3 +25,25 @@ optional arguments:
                         Start year [1800]
   --end-year END_YEAR   End year [2099]
 ```
+
+## Installation from source (using Poetry)
+
+```
+git clone https://github.com/cbernander/doomsday-trainer.git
+cd doomsday-trainer
+poetry build
+pip install dist/doomsday_trainer-*.whl
+```
+
+## Dependencies and external tools
+
+- Python 3.7+
+
+- [Poetry](https://python-poetry.org/) for dependency management and packaging.
+
+- [tox](https://pypi.org/project/tox/) for testing.
+
+- [Black](https://black.readthedocs.io/en/stable/index.html) for code
+  formatting.
+
+- GUI built using [PySimpleGUI](https://www.pysimplegui.org/)
