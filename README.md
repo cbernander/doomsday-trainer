@@ -20,6 +20,21 @@ optional arguments:
   --end-year END_YEAR   End year [2099]
 ```
 
+## Installation
+
+```
+pip install doomsday-trainer
+```
+
+## Installation from source (using Poetry)
+
+```
+git clone https://github.com/cbernander/doomsday-trainer.git
+cd doomsday-trainer
+poetry build
+pip install dist/doomsday_trainer-*.whl
+```
+
 ## Dependencies and external tools
 
 - Python 3.7+
@@ -32,18 +47,3 @@ optional arguments:
   formatting.
 
 - GUI built using [PySimpleGUI](https://www.pysimplegui.org/)
-
-## Installation
-
-```
-pip install doomsday-trainer
-```
-
-### From source (using Poetry)
-
-```
-git clone https://github.com/cbernander/doomsday-trainer.git
-cd doomsday-trainer
-poetry build
-pip install dist/doomsday_trainer-*.whl
-```
