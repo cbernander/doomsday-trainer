@@ -33,9 +33,7 @@ def main() -> None:
     args = parser.parse_args()
 
     if args.start_year > args.end_year:
-        print(
-            "Error: Start year must be less than or equal to end year.", file=sys.stderr
-        )
+        print("Error: Start year must be less than or equal to end year.", file=sys.stderr)
         return
 
     trainer = DoomsdayTrainer(args.start_year, args.end_year)
