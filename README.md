@@ -8,13 +8,16 @@ The name is taken from the
 devised by [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway) in
 1973 for this specific purpose.
 
-## Dependencies
+## Dependencies and external tools
 
 - Python 3.7+
 
 - [Poetry](https://python-poetry.org/) for dependency management and packaging.
 
 - [tox](https://pypi.org/project/tox/) for testing.
+
+- [Black](https://black.readthedocs.io/en/stable/index.html) for code
+  formatting.
 
 ## Installation
 
