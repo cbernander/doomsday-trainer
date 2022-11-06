@@ -2,7 +2,7 @@
 
 import argparse
 import sys
-from .dates import DAYS, DoomsDate
+from .dates import DoomsDate, DoomsWeekday
 from .gui import SimpleGui
 
 DEFAULT_START_YEAR = 1800
@@ -16,16 +16,12 @@ class DoomsdayTrainer:
         """Init method."""
         self.start_date = DoomsDate(start_year, 1, 1)
         self.end_date = DoomsDate(end_year, 12, 31)
-        self.date = None
+        self.date = self.start_date  # to keep mypy happy
         self.new_date()
 
     def new_date(self):
         """Set a new random DoomsDate within date interval."""
         self.date = DoomsDate.random(self.start_date, self.end_date)
-
-    def is_match(self, event):
-        """Return true if event matches date weekday."""
-        return event == DAYS[self.date.weekday()]
 
 
 def main() -> None:
@@ -59,8 +55,11 @@ def main() -> None:
         if event in gui.EXIT_EVENTS:
             break
 
-        if event in DAYS:
-            if trainer.is_match(event):
+        # Try to create a DoomsWeekday from the event
+        answer_doomsweekday = DoomsWeekday.create_from_name(event)
+
+        if answer_doomsweekday is not None:
+            if answer_doomsweekday == trainer.date.doomsweekday():
                 gui.update_result(f"{trainer.date} is a {event}")
                 trainer.new_date()
                 gui.update_date(str(trainer.date))
