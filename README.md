@@ -42,6 +42,6 @@ usage: doomsday-trainer [-h] [--start-year START_YEAR] [--end-year END_YEAR]
 optional arguments:
   -h, --help            show this help message and exit
   --start-year START_YEAR
-                        Start year
-  --end-year END_YEAR   End year
+                        Start year [1800]
+  --end-year END_YEAR   End year [2099]
 ```

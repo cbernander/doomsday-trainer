@@ -5,6 +5,9 @@ import sys
 from .dates import DAYS, DoomsDate
 from .gui import SimpleGui
 
+DEFAULT_START_YEAR = 1800
+DEFAULT_END_YEAR = 2099
+
 
 class DoomsdayTrainer:
     """Doomsday trainer class."""
@@ -28,8 +31,15 @@ class DoomsdayTrainer:
 def main() -> None:
     """Run main code."""
     parser = argparse.ArgumentParser()
-    parser.add_argument("--start-year", type=int, default=1800, help="Start year")
-    parser.add_argument("--end-year", type=int, default=2099, help="End year")
+    parser.add_argument(
+        "--start-year",
+        type=int,
+        default=DEFAULT_START_YEAR,
+        help=f"Start year [{DEFAULT_START_YEAR}]",
+    )
+    parser.add_argument(
+        "--end-year", type=int, default=DEFAULT_END_YEAR, help=f"End year [{DEFAULT_END_YEAR}]"
+    )
     args = parser.parse_args()
 
     if args.start_year > args.end_year:
