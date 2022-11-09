@@ -1,5 +1,9 @@
 """GUI code."""
-import PySimpleGUI as sg  # type: ignore
+try:
+    import PySimpleGUI as sg  # type: ignore
+except ModuleNotFoundError as e:
+    if e.name == "tkinter":
+        raise SystemExit("The tkinter package is not properly installed on your computer.")
 from .dates import DoomsWeekday
 
 THEME = "Gray Gray Gray"

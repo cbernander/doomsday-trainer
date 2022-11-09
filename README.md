@@ -10,7 +10,7 @@ devised by [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway) in
 
 ## Installation
 
-```
+```bash
 pip install doomsday-trainer
 ```
 
@@ -38,6 +38,8 @@ pip install dist/doomsday_trainer-*.whl
 ## Dependencies and external tools
 
 - Python 3.7+
+
+- [tkinter](https://docs.python.org/3/library/tkinter.html)
 
 - [Poetry](https://python-poetry.org/) for dependency management and packaging.
 
