@@ -12,7 +12,7 @@ devised by [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway) in
 
 - Python 3.7+
 
-- [tkinter](https://docs.python.org/3/library/tkinter.html)
+- [tkinter](https://docs.python.org/3/library/tkinter.html) ([Installation instructions](#tkinter-installation))
 
 ## Installation
 
@@ -39,6 +39,32 @@ git clone https://github.com/cbernander/doomsday-trainer.git
 cd doomsday-trainer
 poetry build
 pip install dist/doomsday_trainer-*.whl
+```
+
+## tkinter installation
+
+### Ubuntu / Debian
+
+```bash
+$ sudo apt get install python3-tk
+```
+
+### Arch Linux
+
+```bash
+$ sudo pacman -S tk
+```
+
+### Fedora
+
+```bash
+$ sudo dnf install python3-tkinter
+```
+
+### RHEL / CentOS / Oracle Linux
+
+```bash
+$ sudo yum install -y tkinter tk-devel
 ```
 
 ## Development tools
