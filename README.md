@@ -43,6 +43,12 @@ pip install dist/doomsday_trainer-*.whl
 
 ## tkinter installation
 
+### macOS
+
+```bash
+$ brew install python-tk
+```
+
 ### Ubuntu / Debian
 
 ```bash
