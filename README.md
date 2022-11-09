@@ -8,6 +8,12 @@ The name is taken from the
 devised by [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway) in
 1973 for this specific purpose.
 
+## Dependencies
+
+- Python 3.7+
+
+- [tkinter](https://docs.python.org/3/library/tkinter.html)
+
 ## Installation
 
 ```bash
@@ -28,18 +34,15 @@ optional arguments:
 
 ## Installation from source (using Poetry)
 
-```
+```bash
 git clone https://github.com/cbernander/doomsday-trainer.git
 cd doomsday-trainer
 poetry build
 pip install dist/doomsday_trainer-*.whl
 ```
 
-## Dependencies and external tools
+## Development tools
 
-- Python 3.7+
-
-- [tkinter](https://docs.python.org/3/library/tkinter.html)
 
 - [Poetry](https://python-poetry.org/) for dependency management and packaging.
 
