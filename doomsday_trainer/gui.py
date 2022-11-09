@@ -2,7 +2,7 @@
 try:
     import PySimpleGUI as sg  # type: ignore
 except ModuleNotFoundError as e:
-    if e.name == "tkinter":
+    if e.name in ["tkinter", "_tkinter"]:
         raise SystemExit("Error: The tkinter package is not properly installed on your computer.")
     else:
         raise SystemExit(f"Error: Could not import module '{e.name}'.")
