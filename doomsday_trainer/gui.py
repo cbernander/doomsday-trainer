@@ -3,7 +3,9 @@ try:
     import PySimpleGUI as sg  # type: ignore
 except ModuleNotFoundError as e:
     if e.name == "tkinter":
-        raise SystemExit("The tkinter package is not properly installed on your computer.")
+        raise SystemExit("Error: The tkinter package is not properly installed on your computer.")
+    else:
+        raise SystemExit(f"Error: Could not import module '{e.name}'.")
 from .dates import DoomsWeekday
 
 THEME = "Gray Gray Gray"
